@@ -8,9 +8,9 @@
 Lors du Téléchargement du projet, la pour l'exécuter  
 L'interface affiche la liste des Places 
 - il y'a un Champ pour filtrer les places en fonction de "lat" 35 par exemple...
-- un boutton "places" pour afficher toutes les places.
-- un boutton pour ajouter une place. apres un click un formulaire s'ouvre.
-
+- un bouton "places" pour afficher toutes les places.
+- un bouton "ajouter" pour ajouter une place. apres un click un formulaire s'ouvre.
+- un bouton "suprimer" pour delete un endroit...
 
 
 
