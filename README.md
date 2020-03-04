@@ -1,3 +1,33 @@
+
+# PROBLEME RENCONTRE
+ J'ai constaté des soucis au niveau de l'API Quand je fais des requetes POST PUT et DELETE...
+ je reçois des code 500 "Internal Server Error"
+ et meme quand je test les requetes manuellement sur post man ou en Ajax...
+
+# Fonctionnement 
+Lors du Téléchargement du projet, pour l'exécuter  
+Linterface affiche la liste des Places 
+- il y'a un Champ pour filtrer les places en fonction de "lat" 35 par exemple...
+- un boutton "places" pour afficher toutes les places.
+- un boutton pour ajouter une place. apres un click un formulaire s'ouvre.
+- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # ArnaudNeonoos
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.

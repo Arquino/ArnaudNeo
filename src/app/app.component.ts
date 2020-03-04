@@ -12,19 +12,58 @@ export class AppComponent {
 
 
   places = [];
+
   post = {
-    name: '',
-   description: '',
-   address: '',
-   lat: 0,
-   lng: 0,
-   rating: 0,
-}
+          "name": '',
+        "description": '',
+        "address": '',
+        "lat": 0,
+        "lng": 0,
+        "rating": 0,
+};
+
+    field ;
 
 constructor(private http: HttpClient){
 
   this.getData();
    
+}
+
+
+
+filter(){
+
+  console.log("votre recherhce est: ");
+  console.log(this.field);
+
+  // Filtrer avec form
+  let url =  "https://arnaud.neonoos.com/places?filter[lat_from]="+this.field;
+  // http://arnaud.neonoos.com/places?filter[lng]=18.355509
+  // this.field
+
+  let data : Observable<any> = this.http.get(url);
+  data.subscribe(result => {
+    
+    this.places = result.data;
+
+  
+
+    console.log("Le filtre");
+      console.log(result.data);
+      // console.log(result.data.id);
+       
+  });
+
+}
+
+annuler() {
+
+  this.post.name = '';
+    this.post.address = '';
+    this.post.description = '';
+        this.post.rating = 0;
+    console.log("Vous avez annulez l'envoi du formulaire");
 }
 
 
@@ -43,6 +82,66 @@ getData(){
        
   });
 }
+
+
+
+  // POST
+  postData(){
+
+
+    // let url =  "https://arnaud.neonoos.com/places";
+    // this.http.post(url, {
+    //   // name: this.post.name,
+    //   // description: this.post.description,
+    //   // address: this.post.address
+     
+    // }).subscribe((response) => {
+    //   console.log("les responses")
+    //     console.log(response);
+    // });
+    
+    let url =  "https://arnaud.neonoos.com/places";
+    
+    let data : Observable<any> = this.http.post(url, this.post);
+    data.subscribe(result => {
+      
+      console.log("les donnees posté")
+      console.log(this.post)
+      // this.places = result.data;
+
+      console.log("listes des places");
+        console.log(result.data);
+    });
+
+    
+    console.log("vous avez posté")
+
+    this.post.name = '';
+    this.post.address = '';
+    this.post.description = '';
+    // this.post.rating = ;
+    console.log("le formulair est remi à 0")
+  }
+
+  delData (id){
+
+    
+    console.log("l'identifiant selectionné :" + id)
+
+    let url =  "https://arnaud.neonoos.com/places/" + id;
+    let data : Observable<any> = this.http.delete(url, id);
+    data.subscribe(() => {
+      
+      // this.places = result.data;
+         
+    });
+    console.log("vous avez supprimé l'id " + id);
+  }
+
+
+  editData(){
+    console.log("bien modifier")
+  }
 
 
 
