@@ -58,7 +58,7 @@
       <li class="nav nav-item">
 
 
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">add</button>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">ajouter</button>
       </li>
 
       <li class="nav nav-item">
@@ -134,7 +134,9 @@
 
       <li class="nav nav-item">
 
-        <!-- Button trigger modal -->
+
+
+
 
 
 
@@ -176,12 +178,77 @@
           <div class="card-body">
 
 
-
             <p class="card-text">{{place.attributes.description}}</p>
-            <button type="button" class="btn btn-success" (click)="editData()" data-target="#edit"> edit</button>
 
 
-            
+
+            <!-- FORMULAIRE DE EDIT -->
+            <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modifier cet endroit?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Nom:</label>
+                        <input type="text" class="form-control" [(ngModel)]="post.name"
+                          placeholder="{{place.attributes.name}}" name="name">
+                      </div>
+                      <div class="form-group">
+
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Addresse</label>
+                        <input type="text" class="form-control" [(ngModel)]="post.address" name="addresse"
+                          placeholder="Addresse">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">description:</label>
+                        <textarea class="form-control" [(ngModel)]="post.description" name="description"
+                          placeholder="description" id="message-text"></textarea>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect1">Note</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                          <option>10</option>
+
+                        </select>
+                      </div>
+                      <label> {{post.name}}</label><br>
+                      <label> {{post.address}}</label><br>
+                      <label> {{post.description}}</label>
+
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                      (click)="annuler()">annuler</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editData(place.id)"
+                      (click)="postData()">modifier</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit"> edit</button>
+
+
+
+
 
             <!-- Confirmation de suppression -->
             <div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
